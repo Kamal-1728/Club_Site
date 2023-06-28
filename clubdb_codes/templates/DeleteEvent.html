@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "Styles/Styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@1&family=Lato:ital,wght@1,700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+
+<head>
+    <style>
+        body  {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://images.unsplash.com/photo-1532452119098-a3650b3c46d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+            background-color: #cccccc;
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
+    <title> Delete Event </title>
+</head>
+
+<body>
+    <left>
+        <a href="{% url 'index' %}">
+            <button class="btn btn-outline-primary">HomePage</button>
+        </a>
+
+    </left>
+    <left>
+        <a href="{% url 'showevent' %}">
+            <button class="btn btn-outline-primary">Show Event</button>
+        </a>
+
+    </left>
+    <left>
+        <a href="{% url 'Insertevent' %}">
+            <button class="btn btn-outline-primary">Insert Event</button>
+        </a>
+    </left>
+    
+    <center>
+        <h1 style="color:black;"> Deleted successfully </h1>
+    </hr>
+
+
+<!-- 
+        <form method="POST" action="/DeleteClub/{{club.club_id}}">
+            {% csrf_token%}
+            <h1>Deleted successfully</h1> -->
+        <!-- <table border="1" bgcolor="red">
+            <tr>
+                <td>Cyclist ID</td>
+                <td><input type="text" name="club_id"></td>
+            </tr>
+
+            <tr>
+                <td>Cyclist Name</td>
+                <td><input type="text" name="club_name" ></td>
+            </tr>
+
+            <tr>
+                <td>Contest</td>
+                <td><input type="text" name="club_email"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Delete Record"></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style="color: red;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table> -->
+        </form>
+    </center>
+</body>
+</html>

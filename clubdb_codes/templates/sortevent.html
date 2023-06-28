@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "Styles/Styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@1&family=Lato:ital,wght@1,700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+<head>
+    <style>
+        body  {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://images.unsplash.com/photo-1532452119098-a3650b3c46d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+            background-color: #cccccc;
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+    <title> Sort Event</title>
+</head>
+
+<body>
+    <left>
+        <a href="{% url 'index' %}">
+            <button class="btn btn-outline-primary">HomePage</button>
+        </a>
+
+    </left>
+    <left>
+        <a href="{% url 'showevent' %}">
+        <button>show event</button>
+        </a>
+
+    </left>
+    <!-- <left>
+        <a href="{% url 'Insertclub' %}">
+        <button>HomePage</button>
+        </a>
+
+    </left> -->
+
+    <center>
+        <h1 style="color:black;"> Show events - Sorted </h1>
+    </hr>
+    <form method="POST" action="sortevent">
+        {% csrf_token %}
+        <label for="Sort"></label>
+            <select id="Sort" name="Sort">
+                <!-- Event ID	Event Duration	Event Name	Event Date	Event Theme	Event Capacity	Event Eligibility -->
+                <option value="event_id">Event ID</option>
+                <option value="event_duration">Event Duration</option>
+                <option value="event_name">Event Name</option>
+                <option value="event_date">Event Date</option>
+                <option value="event_theme">Event Theme</option>
+                <option value="event_capacity">Event Capacity</option>
+                <option value="event_eligibility">Event Eligibility</option>
+            </select>
+            <input type="submit" value="Sort">
+    </form>
+        </hr>
+
+        <table border="1" bgcolor="red">
+            <tr>
+                <th>Event ID</th>
+                <th>Event Duration</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Event Theme</th>
+                <th>Event Capacity</th>
+                <th>Event Eligibility</th>
+            </tr>
+            {% for result in data %}
+            <tr>
+                <td>{{ result.event_id }}</td>
+                <td>{{ result.event_duration }}</td>
+                <td>{{ result.event_name }}</td>
+                <td>{{ result.event_date }}</td>
+                <td>{{ result.event_theme }}</td>
+                <td>{{ result.event_capacity }}</td>
+                <td>{{ result.event_eligibility }}</td>
+                <td><a href="EditEvent/{{result.event_id}}">Edit✍</a></td>
+                <td><a href="DeleteEvent/{{result.event_id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
+
+
